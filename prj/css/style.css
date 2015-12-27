@@ -1,0 +1,130 @@
+@charset utf-8;
+
+/* body
+-------------------------------------------------- */
+body {
+	font-family: 'Helvetica Neue','Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3', Meiryo, メイリオ, sans-serif;
+	background: #fff;
+}
+a {
+	color: #333333;
+}
+a,
+button {
+	-webkit-tap-highlight-color: rgba(204,204,204,.5);
+}
+
+svg:not(:root) {
+	overflow: visible;
+}
+
+/* default-setting
+-------------------------------------------------- */
+.navbar {
+	position: absolute;
+	top: 0;
+	width: 100%;
+	z-index: 9999;
+}
+/*.navbar {
+	border-bottom: 1px solid #dddddd;
+}*/
+.wrapper {
+	width: 100%;
+	text-align: center;
+}
+.content {
+  display: inline-block;
+  width: 100%;
+}
+
+/* text
+-------------------------------------------------- */
+h1,
+h2,
+h3,
+h4,
+h5{
+	color: #333;
+	font-family: 'Roboto', sans-serif;
+	font-weight: 700;
+}
+h1{
+	font-size: 32px;
+}
+h2{
+	font-size: 25px;
+}
+h3{
+	font-size: 18px;
+}
+h4{
+	font-size: 15px;
+}
+h5{
+	font-size: 13px
+}
+
+p{
+	font-size: 14px;
+	color: #333;
+}
+
+/* margin-module
+-------------------------------------------------- */
+/* margin-top */
+.mt4  { margin-top:  4px; }
+.mt8  { margin-top:  8px; }
+.mt12 { margin-top: 12px; }
+.mt16 { margin-top: 16px; }
+.mt20 { margin-top: 20px; }
+.mt24 { margin-top: 24px; }
+.mt28 { margin-top: 28px; }
+.mt32 { margin-top: 32px; }
+.mt36 { margin-top: 36px; }
+.mt40 { margin-top: 40px; }
+.mt44 { margin-top: 44px; }
+.mt48 { margin-top: 48px; }
+.mt52 { margin-top: 52px; }
+.mt56 { margin-top: 56px; }
+.mt60 { margin-top: 60px; }
+.mt64 { margin-top: 64px; }
+.mt68 { margin-top: 68px; }
+.mt72 { margin-top: 72px; }
+.mt76 { margin-top: 76px; }
+.mt80 { margin-top: 80px; }
+.mt84 { margin-top: 84px; }
+.mt88 { margin-top: 88px; }
+.mt92 { margin-top: 92px; }
+.mt96 { margin-top: 96px; }
+/* margin-bottom */
+.mb4  { margin-bottom:  4px; }
+.mb8  { margin-bottom:  8px; }
+.mb12 { margin-bottom: 12px; }
+.mb16 { margin-bottom: 16px; }
+.mb20 { margin-bottom: 20px; }
+.mb24 { margin-bottom: 24px; }
+.mb28 { margin-bottom: 28px; }
+.mb32 { margin-bottom: 32px; }
+.mb36 { margin-bottom: 36px; }
+.mb40 { margin-bottom: 40px; }
+.mb44 { margin-bottom: 44px; }
+.mb48 { margin-bottom: 48px; }
+.mb52 { margin-bottom: 52px; }
+.mb56 { margin-bottom: 56px; }
+.mb60 { margin-bottom: 60px; }
+.mb64 { margin-bottom: 64px; }
+.mb68 { margin-bottom: 68px; }
+.mb72 { margin-bottom: 72px; }
+.mb76 { margin-bottom: 76px; }
+.mb80 { margin-bottom: 80px; }
+.mb84 { margin-bottom: 84px; }
+.mb88 { margin-bottom: 88px; }
+.mb92 { margin-bottom: 92px; }
+.mb96 { margin-bottom: 96px; }
+
+/* try-header
+-------------------------------------------------- */
+
+
+
