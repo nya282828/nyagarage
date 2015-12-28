@@ -3,7 +3,7 @@
 /* body
 -------------------------------------------------- */
 body {
-	font-family: 'Helvetica Neue','Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3', Meiryo, メイリオ, sans-serif;
+	font-family: 'Roboto','Helvetica Neue','Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3', Meiryo, メイリオ, sans-serif;
 	background: #fff;
 }
 a {
@@ -31,7 +31,6 @@ svg:not(:root) {
 }*/
 .wrapper {
 	width: 100%;
-	text-align: center;
 }
 .content {
   display: inline-block;
@@ -48,6 +47,7 @@ h5{
 	color: #333;
 	font-family: 'Roboto', sans-serif;
 	font-weight: 700;
+	margin: 0;
 }
 h1{
 	font-size: 32px;
@@ -125,6 +125,69 @@ p{
 
 /* try-header
 -------------------------------------------------- */
+header{
+	position: absolute;
+	top:0;
+	left: 0;
+	width: 260px;
+}
+.try-head{
+	display: block;
+	color: #fff;
+	width: 260px;
+	height: 200px;
+	border: 200px solid transparent;
+	border-top: 200px solid #333;
+	border-left: 200px solid #333;
+	position: relative;
+}
+.head-wap {
+	position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    margin: -150px 0 0 -150px;
+}
+.logo h1{
+	color: #fff;
+}
+.gnv{
+	margin: 20px 0 0 0;
+}
+.gnv ul {
+	list-style: none;
+	padding: 0;
+}
+.gnv ul li {
+	margin: 10px 0 0 0;
+}
+
+/* main-content
+-------------------------------------------------- */
+.wrapper{
+	margin: 50px 0 0 0 ;
+}
+.sns-navi{
+	width: 100%;
+	text-align: right;
+	margin: 0 50px 50px 0;
+}
+.sns-navi ul li {
+	display: inline-block;
+}
+.wark{
+	width: 100%;
+	margin: 0 auto;
+}
+.wark h2 {
+	text-align: center;
+}
+.wark .list{
+	width: 980px;
+	margin: 0 auto;
+}
+
+
 
 
 
