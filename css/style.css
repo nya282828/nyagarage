@@ -134,11 +134,11 @@ header{
 .try-head{
 	display: block;
 	color: #fff;
-	width: 260px;
-	height: 200px;
-	border: 200px solid transparent;
-	border-top: 200px solid #333;
-	border-left: 200px solid #333;
+	width: 150px;
+	height: 150px;
+	border: 150px solid transparent;
+	border-top: 150px solid #333;
+	border-left: 150px solid #333;
 	position: relative;
 }
 .head-wap {
@@ -146,48 +146,72 @@ header{
     top: 0;
     left: 0;
     z-index: 2;
-    margin: -150px 0 0 -150px;
+    margin: -120px 0 0 -120px;
 }
 .logo h1{
 	color: #fff;
+	font-size: 25px;
 }
 .gnv{
-	margin: 20px 0 0 0;
+	margin: 10px 0 0 0;
 }
 .gnv ul {
 	list-style: none;
 	padding: 0;
 }
 .gnv ul li {
-	margin: 10px 0 0 0;
+	margin: 7px 0 0 0;
 }
 
 /* main-content
 -------------------------------------------------- */
 .wrapper{
-	margin: 50px 0 0 0 ;
+	margin: 30px 0 0 0 ;
 }
 .sns-navi{
 	width: 100%;
 	text-align: right;
-	margin: 0 50px 50px 0;
+}
+.sns-navi ul{
+	margin: 0 30px 0 0;
 }
 .sns-navi ul li {
 	display: inline-block;
 }
 .wark{
 	width: 100%;
-	margin: 0 auto;
+	margin: 70px auto 0;
 }
 .wark h2 {
 	text-align: center;
+	width: 86px;  
+	margin: 0 auto;
+	border-bottom: 5px solid #333;
 }
 .wark .list{
 	width: 980px;
-	margin: 0 auto;
+	margin: 50px auto;
 }
 
 
 
-
+/* footer
+-------------------------------------------------- */
+footer{
+	width: 100%;
+	background: #f1f1f1;
+	padding: 30px 0 30px 0;
+}
+.foot-content{
+	width: 980px;
+	margin: 0 auto;
+}
+footer p {
+	width: 980px;
+	margin: 0 auto;
+}
+.copylight{
+	font-size: 11px;
+	color: #999;
+}
 
