@@ -1,18 +1,17 @@
-var opAnimation = {
+var opA = {
 
 	animation: function(){
-		$('js-load-bg')
-	}
+		
+		setTimeout(function (){
+			$('.js-load-bg').fadeOut('slow');
+		},1000);
+	},
 
 	init: function () {
-		// body...
+		opA.animation();
 	}
 }
 
-$(window).load(function (){
-	$('.loading').hide();
-})
-
-$(document).ready(function () {
-	opAnimation.init();
+$(window).load(function () {
+	opA.init();
 });
