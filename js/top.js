@@ -3,7 +3,7 @@ var opA = {
 	animation: function(){
 
 		setTimeout(function (){
-			$('.js-load-bg').fadeOut('slow');
+			$('.js-load-bg').fadeOut(100);
 			$('.js-slideIn').addClass('try-head');
 		},1000);
 	},
