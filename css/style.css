@@ -176,7 +176,7 @@ header .try-head{
 	display: block;
     background: linear-gradient(-45deg, transparent 50%, #333 50%);
     width: 200%;
-    height: 200%;
+    height: 200vw;
     z-index: 2;
     position: fixed;
 }
@@ -229,6 +229,7 @@ header .try-head{
 	width: 100%;
 	margin: 70px auto 0;
 }
+
 .wark h2 {
 	text-align: center;
 	width: 92px;  
@@ -236,26 +237,31 @@ header .try-head{
 	border-bottom: 5px solid #333;
 }
 .wark .list{
-	width: 980px;
+	max-width: 980px;
+	width: 100%;
 	margin: 50px auto;
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-between;
+	align-items: stretch;
 }
-.list:after{
+/*.list:after{
 	content : ''; display : block; clear : both; height:0;
-}
+}*/
 .item{
-	max-width: 100%;
-	width: 220px;
-	margin:0 33px 40px 0;
-	float: left;
+	max-width: 220px;
+	width: 100%;
+	margin:0 0 40px 0;
+	/*float: left;*/
 }
 .item img {
 	background: #ccc;
 	width: 100%;
 	height: 150px;
 }
-.item:nth-child(4n){
+/*.item:nth-child(4n){
 	margin-right: 0;
-}
+}*/
 
 .list dl{
 	margin:0;
@@ -270,11 +276,12 @@ footer{
 	padding: 30px 0 30px 0;
 }
 .foot-content{
-	width: 980px;
+	max-width: 980px;
+	width: 100%;
 	margin: 0 auto;
 }
 footer p {
-	width: 980px;
+	width: 100%;
 	margin: 0 auto;
 }
 .copylight{
