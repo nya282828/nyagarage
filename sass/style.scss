@@ -144,19 +144,21 @@ p{
 	right: 0;
 	display: block;
 	margin: auto;
-}
-.loading .loading-img {
-	position: absolute;
-	width: 42px;
-	height: 42px;
-	top: 0;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	margin: auto;
-}
-.loading-img img {
-	width: 100%;
+
+	.loading-img {
+		position: absolute;
+		width: 42px;
+		height: 42px;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		margin: auto;
+
+		img {
+			width: 100%;
+		}
+	}
 }
 
 
