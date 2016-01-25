@@ -74,7 +74,7 @@ gulp.task('bs-reload', function () {
 
 // Task for `gulp` command
 
-gulp.task('default',['browser-sync'], function() {
+gulp.task('default',['browser-sync', 'sass'], function() {
     gulp.watch('sass/**/*.scss',['sass']);
     gulp.watch('js/*.js',['js']);
     gulp.watch('images/**/*.{png,jpg,gif,svg}',['imagemin']);
