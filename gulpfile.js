@@ -1,7 +1,7 @@
 var gulp = require('gulp');
 var sass = require('gulp-sass');
 var sourcemaps = require('gulp-sourcemaps');
-var pleeease = require('gulp-pleeease');
+// var pleeease = require('gulp-pleeease');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 var imagemin = require('gulp-imagemin');
@@ -16,11 +16,11 @@ gulp.task('sass', function () {
     gulp.src('sass/**/*.scss')
         .pipe(sourcemaps.init())
         .pipe(sass({errLogToConsole: true})) // Keep running gulp even though occurred compile error
-        .pipe(pleeease({
-            autoprefixer: {
-                browsers: ['last 2 versions']
-            }
-        }))
+        // .pipe(pleeease({
+        //     autoprefixer: {
+        //         browsers: ['last 2 versions']
+        //     }
+        // }))
         .pipe(sourcemaps.write())
         .pipe(gulp.dest('build/css'))
         .pipe(reload({stream:true}));
