@@ -136,9 +136,9 @@ p{
 -------------------------------------------------- */
 .loading {
 	background:none;
-	width:100%;
-	height: 100%;
-	position: absolute;
+	width:100vw;
+	height: 100vh;
+	position: fixed;
 	z-index: 3;
 	top: 0;
 	bottom: 0;
@@ -146,6 +146,7 @@ p{
 	right: 0;
 	display: block;
 	margin: auto;
+	overflow: hidden;
 
 	.loading-img {
 		position: absolute;
@@ -156,6 +157,7 @@ p{
 		left: 0;
 		right: 0;
 		margin: auto;
+		overflow: hidden;
 
 		img {
 			width: 100%;
@@ -204,6 +206,8 @@ header{
     height: 200vw;
     z-index: 2;
     position: fixed;
+    overflow:hidden;
+
 }
 .head-wap {
     top: 0;
@@ -303,41 +307,45 @@ header{
 	position: relative;
 	transition: opacity .2s linear;
 	/*float: left;*/
-}
-.item:hover {
-	opacity: .7;
-}
-.item img {
-	background: #ccc;
-	width: 100%;
-	height: 150px;
-}
-.item a {
-	display: block;
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	top: 0;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	z-index: 10;
-}
-.item:nth-child(4n){
-	margin-right: 0;
+
+	&:hover {
+		opacity: .7;
+	}
+
+	img {
+		background: #ccc;
+		width: 100%;
+		height: 150px;
+	}
+
+	a {
+		display: block;
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		z-index: 10;
+	}
+
+	&:nth-child(4n){
+		margin-right: 0;
+	}
 }
 
 .list dl{
 	margin:0;
-}
 
-.list dl dt {
-	font-weight: 700;
-}
+	dt {
+		font-weight: 700;
+	}
 
-.list dl dd{
-	font-size: 12px;
-	margin:0;
+	dd{
+		font-size: 12px;
+		margin:0;
+	}
 }
 
 
