@@ -9,12 +9,14 @@
 /* body
 -------------------------------------------------- */
 body {
-	font-family: 'Roboto','Helvetica Neue','Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3', Meiryo, メイリオ, sans-serif;
+	font-family: 'Roboto','Helvetica Neue','Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3', 
+		"游ゴシック体", "Yu Gothic", YuGothic, Meiryo, メイリオ, sans-serif;
 	background: #fff;
 	letter-spacing: .07em;
 }
 a {
 	color: #333333;
+	text-decoration:none;
 }
 a,
 button {
@@ -170,24 +172,31 @@ p{
 	left: 0;
 	width: 260px;
 }*/
-header h1 {
+header{
+
+	h1 {
 	letter-spacing: 0.1em;
 	font-weight: 400;
-}
-header h1 span:nth-child(1){
-	margin-right: 0.05em;
+	color: #fff;
+	font-size: 25px;
+	
+		span:nth-child(1){
+			margin-right: 0.05em;
+		}
+	}
+
+	.try-head{
+		display: block;
+	    background: linear-gradient(-45deg, transparent 50%, #333 50%);
+	    width: 420px;
+	    height: 420px;
+	    transition: width .4s cubic-bezier(0.13, 0.09, 0, 1),
+	    			height .4s cubic-bezier(0.13, 0.09, 0, 1);
+	    z-index: 2;
+	    position: fixed;
+	}
 }
 
-header .try-head{
-	display: block;
-    background: linear-gradient(-45deg, transparent 50%, #333 50%);
-    width: 420px;
-    height: 420px;
-    transition: width .4s cubic-bezier(0.13, 0.09, 0, 1),
-    			height .4s cubic-bezier(0.13, 0.09, 0, 1);
-    z-index: 2;
-    position: fixed;
-}
 .js-slideIn {
 	display: block;
     background: linear-gradient(-45deg, transparent 50%, #333 50%);
@@ -201,28 +210,47 @@ header .try-head{
     left: 0;
     margin: 50px 0 0 50px;
 }
-.logo h1{
-	color: #fff;
-	font-size: 25px;
-}
+
 .gnv{
 	margin: 2em 0 0 0;
 	color: #fff;
-}
-.gnv ul {
-	list-style: none;
-	padding: 0;
-}
-.gnv ul li {
-	margin: 0.8em 0 0 0;
-}
-.gnv ul li:before {
-	content: '';
-	display: inline-block;
-	width: 3px;
-	border: 3px solid transparent;
-	border-left: 3px solid #fff;
-	margin: 0 0.4em 0 0;
+
+	ul {
+		list-style: none;
+		padding: 0;
+	
+		li {
+			margin: 0.8em 0 0 0;
+			position:relative;
+
+			a {
+				display: block;
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				top: 0;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				color: #fff;
+				margin: 0 0 0 0.8em;
+
+				&:hover {
+					opacity: .8;
+					transition: opacity .2s linear;
+				}
+			}
+		
+			&:before {
+				content: '';
+				display: inline-block;
+				width: 3px;
+				border: 3px solid transparent;
+				border-left: 3px solid #fff;
+				margin: 0 0.4em 0 0;
+			}
+		}
+	}
 }
 
 
@@ -231,36 +259,39 @@ header .try-head{
 .wrapper{
 	height: 100%;
 }
+
 .sns-navi{
 	width: 100%;
 	text-align: right;
+
+	ul{
+		margin: 0 50px 0 0;
+		padding: 50px 0 0 0;
+		li {
+			display: inline-block;
+		}
+	}
 }
-.sns-navi ul{
-	margin: 0 50px 0 0;
-	padding: 50px 0 0 0;
-}
-.sns-navi ul li {
-	display: inline-block;
-}
+
 .wark{
 	width: 100%;
 	margin: 70px auto 0;
-}
 
-.wark h2 {
-	text-align: center;
-	width: 92px;  
-	margin: 0 auto;
-	border-bottom: 5px solid #333;
-}
-.wark .list{
-	max-width: 980px;
-	width: 100%;
-	margin: 50px auto;
-	display: flex;
-	flex-flow: row wrap;
-	justify-content: flex-start;
-	align-items: stretch;
+	h2 {
+		text-align: center;
+		width: 92px;  
+		margin: 0 auto;
+		border-bottom: 5px solid #333;
+	}
+	.list{
+		max-width: 980px;
+		width: 100%;
+		margin: 50px auto;
+		display: flex;
+		flex-flow: row wrap;
+		justify-content: flex-start;
+		align-items: stretch;
+	}
 }
 /*.list:after{
 	content : ''; display : block; clear : both; height:0;
