@@ -289,21 +289,20 @@ header{
 	}
 	.list{
 		max-width: 980px;
-		width: 100%;
+		width: 70%;
 		margin: 50px auto;
 		display: flex;
 		flex-flow: row wrap;
-		justify-content: flex-start;
-		align-items: stretch;
+		justify-content: space-between;
 	}
 }
 /*.list:after{
 	content : ''; display : block; clear : both; height:0;
 }*/
 .item{
-	max-width: 320px;
-	width: 23%;
-	margin:0 2.666% 3em 0;
+	width: 220px;
+	// width: 23%;
+	margin:0 0 3em 0;
 	position: relative;
 	transition: opacity .2s linear;
 	/*float: left;*/
@@ -330,9 +329,16 @@ header{
 		z-index: 10;
 	}
 
-	&:nth-child(4n){
-		margin-right: 0;
-	}
+	// &:nth-child(4n){
+	// 	margin-right: 0;
+	// }
+}
+.item.js-flexFixed {
+	height: 0;
+	padding-top: 0;
+	padding-bottom: 0;
+	margin-top: 0;
+	margin-bottom: 0;
 }
 
 .list dl{

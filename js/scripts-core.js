@@ -18,8 +18,22 @@ var opA = {
 		},1000);
 	},
 
+	flexJust: function(){
+		var $list = $('.list'),   
+	    emptyCells = [],
+	    i;
+
+	    // 子パネル (ul.cell) の数だけ空の子パネル (ul.cell.is-empty) を追加する。
+		for (i = 0; i < $list.find('.item').length; i++) {
+		    emptyCells.push($('<div>', { class: 'item js-flexFixed' }));
+		}
+
+		$list.append(emptyCells);
+	},
+
 	init: function () {
 		opA.animation();
+		opA.flexJust();
 	}
 }
 
