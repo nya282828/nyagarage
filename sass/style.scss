@@ -227,6 +227,10 @@ header{
 			margin: 0.8em 0 0 0;
 			position:relative;
 
+			span{
+				margin: 0 0 0 1em;
+			}
+
 			a {
 				display: block;
 				position: absolute;
@@ -237,21 +241,23 @@ header{
 				left: 0;
 				right: 0;
 				color: #fff;
-				margin: 0 0 0 0.8em;
-
-				&:hover {
-					opacity: .8;
-					transition: opacity .2s linear;
-				}
+				margin: 0 0 0 0;
 			}
 		
 			&:before {
 				content: '';
 				display: inline-block;
-				width: 3px;
-				border: 3px solid transparent;
-				border-left: 3px solid #fff;
-				margin: 0 0.4em 0 0;
+				width: 20px;
+				height: 1px;
+				background: #fff;
+				//border: 3px solid transparent;
+				//border-left: 3px solid #fff;
+				margin: 0 0 .3em 0;
+			}
+
+			&:hover {
+				opacity: .8;
+				transition: opacity .2s linear;
 			}
 		}
 	}
