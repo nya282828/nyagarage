@@ -277,8 +277,15 @@ header{
 	ul{
 		margin: 0 50px 0 0;
 		padding: 50px 0 0 0;
+
 		li {
 			display: inline-block;
+			width:30px;
+			margin: 0 0 0 .5em;
+
+			img {
+				width: 100%;
+			}
 		}
 	}
 }
@@ -372,8 +379,8 @@ footer{
 	.foot-content{
 		max-width: 1200px;
 		width: 90%;
-		margin: 0 auto 20px;
-		padding: 0 0 30px 0;
+		margin: 0 auto .6em;
+		padding: 0 0 1.2em 0;
 		border-bottom : 1px solid #ccc;
 
 		.foot-nv ul{
