@@ -288,12 +288,12 @@ header{
 		border-bottom: 5px solid #333;
 	}
 	.list{
-		max-width: 980px;
-		width: 70%;
+		// max-width: 980px;
+		width: 90%;
 		margin: 50px auto;
 		display: flex;
 		flex-flow: row wrap;
-		justify-content: space-between;
+		justify-content: center;
 	}
 }
 /*.list:after{
@@ -302,7 +302,7 @@ header{
 .item{
 	width: 220px;
 	// width: 23%;
-	margin:0 0 3em 0;
+	margin:0 20px 3em;
 	position: relative;
 	transition: opacity .2s linear;
 	/*float: left;*/
