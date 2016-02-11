@@ -139,7 +139,7 @@ p{
 	width:100vw;
 	height: 100vh;
 	position: fixed;
-	z-index: 3;
+	z-index: 4;
 	top: 0;
 	bottom: 0;
 	left: 0;
@@ -194,7 +194,7 @@ header{
 	    height: 420px;
 	    transition: width .4s cubic-bezier(0.13, 0.09, 0, 1),
 	    			height .4s cubic-bezier(0.13, 0.09, 0, 1);
-	    z-index: 2;
+	    z-index: 3;
 	    position: fixed;
 	}
 }
