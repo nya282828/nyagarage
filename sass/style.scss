@@ -196,6 +196,10 @@ header{
 	    			height .4s cubic-bezier(0.13, 0.09, 0, 1);
 	    z-index: 3;
 	    position: fixed;
+
+	    @media #{$mq-xs} {
+	    	margin: 0 0 0 -420px;
+	    }
 	}
 }
 
@@ -286,7 +290,16 @@ header{
 			img {
 				width: 100%;
 			}
+
+			&:hover{
+				opacity: .8;
+				transition: opacity .2s linear;
+			}
 		}
+
+		@media #{$mq-xs} {
+	    	margin: 0 3% 0 0;
+	    }
 	}
 }
 
