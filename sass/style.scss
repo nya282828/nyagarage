@@ -132,6 +132,34 @@ p{
 .mb92 { margin-bottom: 92px; }
 .mb96 { margin-bottom: 96px; }
 
+/*pc for tab for sp
+-------------------------------------------------- */
+.pc {
+	display:block;
+
+	@media #{$mq-sm} {
+    	display:none;
+    }
+}
+.tab{
+
+	@media #{$mq-sm} {
+		display:block;
+	}
+	@media #{$mq-xs}{
+		display:none;
+	}
+}
+.sp {
+	display:none;
+
+	@media #{$mq-xs} {
+    	display:block;
+    }
+}
+
+
+
 /*load-anime
 -------------------------------------------------- */
 .loading {
@@ -264,6 +292,11 @@ header{
 				transition: opacity .2s linear;
 			}
 		}
+	}
+}
+.sp-head {
+	h1{
+		color:#333;
 	}
 }
 
