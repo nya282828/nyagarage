@@ -295,6 +295,9 @@ header{
 	}
 }
 .sp-head {
+	width:90%;
+	margin: 2em auto;
+	text-align: center;
 	h1{
 		color:#333;
 	}
@@ -334,6 +337,9 @@ header{
 	    	margin: 0 3% 0 0;
 	    }
 	}
+	@media #{$mq-xs} {
+    	margin: 0 0 0 0;
+    }
 }
 
 
