@@ -5,17 +5,48 @@
 @import "lib/grid";
 @import "lib/core";
 
+/* font-style
+-------------------------------------------------- */
+@font-face {
+  font-family: "Yu Gothic";
+  src: local("Yu Gothic Medium");
+  font-weight: 100;
+}
+@font-face {
+  font-family: "Yu Gothic";
+  src: local("Yu Gothic Medium");
+  font-weight: 200;
+}
+@font-face {
+  font-family: "Yu Gothic";
+  src: local("Yu Gothic Medium");
+  font-weight: 300;
+}
+@font-face {
+  font-family: "Yu Gothic";
+  src: local("Yu Gothic Medium");
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Yu Gothic";
+  src: local("Yu Gothic Bold");
+  font-weight: bold;
+}
+@font-face {
+  font-family: "Helvetica Neue";
+  src: local("Helvetica Neue Regular");
+  font-weight: 100;
+}
+@font-face {
+  font-family: "Helvetica Neue";
+  src: local("Helvetica Neue Regular");
+  font-weight: 200;
+}
+
 /* common
 -------------------------------------------------- */
-
-
-/* body
--------------------------------------------------- */
 body {
-	font-family: 'Roboto','Helvetica Neue','Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3', 
-		"游ゴシック体", "Yu Gothic", YuGothic, Meiryo, メイリオ, sans-serif;
-	background: #fff;
-	letter-spacing: .07em;
+	font-family: "-apple-system", "Helvetica Neue", "Yu Gothic", YuGothic, Verdana, Meiryo, "M+ 1p", sans-serif;
 }
 a {
 	color: #333333;
