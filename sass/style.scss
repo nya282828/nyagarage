@@ -5,6 +5,57 @@
 @import "lib/grid";
 @import "lib/core";
 
+/*prefix 
+----------------------------------------------*/
+@mixin css3($property, $value) {
+     @each $prefix in -webkit-, -moz-, -ms-, -o-, '' {
+          #{$prefix}#{$property}: $value;
+     }
+}
+
+/*common window-size set
+----------------------------------------------*/ 
+$mq-lg: 1440px; //pc
+$mq-md: 1024px; //tab横
+$mq-sm: 768px; //tab縦
+$mq-xs: 568px; //sp
+
+@mixin pc { //ラップトップ向けブレークポイント 1024〜1440
+  @media (min-width: $mq-md) {
+    @content;
+  }
+}
+@mixin m-pc { //ラップトップ向けブレークポイント 1024〜1440
+  @media (min-width: $mq-md) and (max-width: ($mq-lg)) {
+    @content;
+  }
+}
+@mixin s-pc { //タブレット横向けブレークポイント 768〜1024
+  @media (min-width: $mq-sm) and (max-width: ($mq-md)) {
+    @content;
+  }
+}
+@mixin tab { // 568〜768
+  @media (min-width: $mq-xs) and (max-width: ($mq-sm)) {
+    @content;
+  }
+}
+@mixin tab-p { //タブレット縦向けブレークポイント 568〜768
+  @media (min-width: $mq-xs) and (max-width: ($mq-sm)) and (orientation:portrait) {
+    @content;
+  }
+}
+@mixin sp { //スマートフォン向けブレークポイント 〜568
+  @media (max-width: ($mq-xs)) {
+    @content;
+  }
+}
+@mixin retina {
+	@media (-webkit-min-device-pixel-ratio: 2){
+	    @content;
+	}
+}
+
 /* font-style
 -------------------------------------------------- */
 @font-face {
@@ -43,10 +94,101 @@
   font-weight: 200;
 }
 
-/* common
+$font-n: font-family: "Roboto", "-apple-system", "Helvetica Neue", "Yu Gothic", YuGothic, Verdana, Meiryo, "M+ 1p", sans-serif !default;
+
+/*common color set
+----------------------------------------------*/ 
+$text: #363b3b !default; //本文or黒
+$gray: #e7efef !default; //bg or グレー
+$man: #0097ae !default; //男子データカラー
+$woman: #e42e88 !default; //女子データカラー
+$main: #00478b !default; //基本メインカラー
+
+//medal
+$gold: #e0c12f !default;
+$silver: #97a8aa !default;
+$bronze: #796551 !default;
+
+$japan: #f64d55 !default;
+
+/*common mixin
+----------------------------------------------*/
+
+// clear-fix
+@mixin clearfix() {
+    *zoom: 1;
+    &:before,
+    &:after {
+        display: table;
+        content: " ";
+    }
+    &:after {
+        clear: both;
+    }
+}
+
+//absolute position
+@mixin absPoz ($top: auto, $right: auto, $bottom: auto, $left: auto) {
+     position: absolute;
+     top: $top;
+     right: $right;
+     bottom: $bottom;
+     left: $left;
+}
+
+//absolute position center
+@mixin absCnt() {
+	@include absPoz(0, 0, 0, 0);
+	margin: auto;
+}
+
+//arrow 
+@mixin arrow-right($width: 10px, $height: 10px) {
+	content: '';
+	display: block;
+	width: $width;
+	height: $height;
+	border-top: 1px solid $text;
+	border-right: 1px solid $text;
+	-webkit-transform: rotate(45deg);
+	   -moz-transform: rotate(45deg);
+	    -ms-transform: rotate(45deg);
+	     -o-transform: rotate(45deg);
+	        transform: rotate(45deg);
+}
+@mixin arrow-left($width: 10px, $height: 10px) {
+	content: '';
+	display: block;
+	width: $width;
+	height: $height;
+	border-top: 1px solid $text;
+	border-left: 1px solid $text;
+	-webkit-transform: rotate(-45deg);
+	   -moz-transform: rotate(-45deg);
+	    -ms-transform: rotate(-45deg);
+	     -o-transform: rotate(-45deg);
+	        transform: rotate(-45deg);
+}
+
+
+//pseudo bace
+@mixin pseudo($width: 0, $height: 0) {
+	content: '';
+	display: block;
+	width: $width;
+	height: $height;
+}
+
+
+/* common-style
 -------------------------------------------------- */
+@-ms-viewport {
+    width: auto;
+    initial-scale: 1;
+}
+
 body {
-	font-family: "-apple-system", "Helvetica Neue", "Yu Gothic", YuGothic, Verdana, Meiryo, "M+ 1p", sans-serif;
+	font-family: $font-n ;
 }
 a {
 	color: #333333;
