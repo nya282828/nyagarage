@@ -1,0 +1,319 @@
+@charset "utf-8";
+// common window-size set
+// ----------------------------------------------
+@mixin mq-xxxs {
+	@media (min-width: ($breakpoint_xxxs)) {@content;}
+}
+@mixin mq-xxs {
+	@media (min-width: ($breakpoint_xxs)) {@content;}
+}
+@mixin mq-xs {
+	@media (min-width: ($breakpoint_xs)) {@content;}
+}
+@mixin mq-s {
+	@media (min-width: ($breakpoint_s)) {@content;}
+}
+@mixin mq-m {
+	@media (min-width: ($breakpoint_m)) {@content;}
+}
+@mixin mq-l {
+	@media (min-width: ($breakpoint_l)) {@content;}
+}
+@mixin mq-xl {
+	@media (min-width: ($breakpoint_xl)) {@content;}
+}
+@mixin mq-xxl {
+	@media (min-width: ($breakpoint_xxl)) {@content;}
+}
+@mixin mq-xxxl {
+	@media (min-width: ($breakpoint_xxxl)) {@content;}
+}
+@mixin mq-width($size) {
+	@media (min-width: $size) {@content;}
+}
+@mixin mq-height($size) {
+	@media (min-height: $size) {@content;}
+}
+@mixin mq-retina {
+	@media (-webkit-min-device-pixel-ratio: 2), (min-device-pixel-ratio: 2) {@content;}
+}
+
+// ベンダープレフィックス
+// -------------------------------------
+// サポートブラウザに応じてプレフィックスを自動で追加
+@mixin prefix($property, $value) {
+	@each $prefix in $prefix_list {
+		#{$prefix}#{$property}: $value;
+	}
+	@if $support_ie6 or $support_ie7 or $support_ie8 {
+      @if $property == opacity {
+        filter: alpha(opacity=($value * 100));
+      }
+    }
+}
+
+// 慣性スクロール
+// -------------------------------------
+// 要素の中に慣性スクロールを適用する
+@mixin overflow-scroll {
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+
+// text-rendering
+// -------------------------------------
+@mixin smoothing {
+   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+           text-rendering: optimizeLegibility;
+}
+
+// clearfix
+// -------------------------------------
+@mixin clearfix() {
+	@if $support_ie6 or $support_ie7 {
+		*zoom: 1;
+		&:before{
+			content: ' ';
+			display: table;
+		}
+	}
+    &:after {
+        content: ' ';
+		@if $support_ie6 or $support_ie7 or $support_ie8 {
+			display: table;
+		} @else {
+        	display: block;
+		}
+        clear: both;
+		height: 0;
+		visibility: hidden;
+    }
+}
+
+// font-weight bold mixin
+// ----------------------------------------------
+// フォント指定時に使用する。
+
+// 日本語本文、見出し
+// type      = gothic か mincho  書体
+// weight    = bold か normal    太さ
+// smoothing = true か false     font-smoothing
+@mixin font-family-japan($type:gothic, $weight:normal, $smoothing:true) {
+	@if $morisawa {
+		@if $type == "mincho" {
+			@if $weight == "bold" {
+				font-family: "Times New Roman", $morisawa_mincho_bold, Verdana, "游明朝" , "Yu Mincho" , "游明朝体" , "YuMincho",  "HGS明朝E", "ＭＳ Ｐ明朝", "MS PMincho", serif;
+				font-weight: $weight;
+			} @else {
+				font-family: "Times New Roman", $morisawa_mincho_normal, Verdana, "游明朝" , "Yu Mincho" , "游明朝体" , "YuMincho",  "HGS明朝E", "ＭＳ Ｐ明朝", "MS PMincho", serif;
+			}
+		} @else if $type == "gothic" {
+			@if $weight == "bold" {
+				font-family: "-apple-system", BlinkMacSystemFont, "Helvetica Neue", $morisawa_gothic_bold, Verdana, Meiryo, "M+ 1p", sans-serif;
+				font-weight: $weight;
+			} @else {
+				font-family: "-apple-system", BlinkMacSystemFont, "Helvetica Neue", $morisawa_gothic_normal, Verdana, Meiryo, "M+ 1p", sans-serif;
+			}
+		} @else {
+			font-family: $default_font;
+			font-weight: $weight;
+		}
+	} @else {
+		font-family: $default_font;
+		font-weight: $weight;
+	}
+
+	@if $smoothing == true {
+      @include smoothing;
+    }
+}
+
+// 数字や見出しに使用する欧文書体
+// weight    = bold か normal    太さ
+// smoothing = true か false     font-smoothing
+@mixin font-family-euro($weight:normal, $smoothing:true) {
+	@if $weight == "bold" {
+		font-family: $euro_font;
+		font-weight: $weight;
+	} @else {
+		font-family: $euro_font;
+	}
+	@if $smoothing == true {
+      @include smoothing;
+    }
+}
+
+
+// animation（codepen検証済）
+// ----------------------------------------------
+// animation-name             = { @string }
+// animation-duration         = { @number }
+// animation-timing-function  = {'ease'|'linear'|'ease-in'|'ease-out'|'ease-in-out'|'cubic-bezier(A,B,C,D)'}
+// animation-delay            = { @number }
+// animation-iteration-count  = {'infinite'| @number }
+// animation-direction        = {'normal'|'alternate'}
+// animation-fill-mode        = {'none'|'forwards'|'backwards'|'both'}
+// ex. @include animation(sample,.2s,ease-out,.3s,infinite,alternate);
+// ex. @include keyframes(sample){
+//     0% {width:50px; height:50px; background-color:gray;}
+//   100% {width:200px; height:50px; background-color:black;}
+// };
+
+// animation
+@mixin  animation($name:name,$duration:0, $timing_function:ease, $delay:0, $iteration_count:1, $direction:normal, $fill_mode:none) {
+	@each $prefix in $prefix_list {
+		#{$prefix}animation: $name $duration $timing_function $delay $iteration_count $direction $fill_mode;
+
+		// #{$prefix}animation-name: $name;
+		// #{$prefix}animation-duration: $duration;
+		// #{$prefix}animation-timing-function: $timing_function;
+		// #{$prefix}animation-delay: $delay;
+		// #{$prefix}animation-iteration-count: $iteration_count;
+		// #{$prefix}animation-direction: $direction;
+		// #{$prefix}fill-mode: $fill_mode;
+	}
+}
+
+// keyframes
+@mixin keyframes($animation_name) {
+	@-webkit-keyframes #{$animation_name} { @content; }
+	   @-moz-keyframes #{$animation_name} { @content; }
+	    @-ms-keyframes #{$animation_name} { @content; }
+	     @-o-keyframes #{$animation_name} { @content; }
+	        @keyframes #{$animation_name} { @content; }
+}
+
+
+
+// retina
+// ----------------------------------------------
+// Androidの高解像度デバイスに対応する比率：1.3
+// ex. @include retina(img_001,png,100,40);
+@mixin retina($file_name,$extension,$width,$height) {
+	background-image: url($path_img + $file_name + '.' + $extension);
+	width: $width;
+	height: $height;
+	@media
+		(-webkit-min-device-pixel-ratio: 1.3),
+		(min--moz-device-pixel-ratio: 1.3),
+		(-o-min-device-pixel-ratio: 2.6/2),
+		(min-device-pixel-ratio: 1.3),
+		(min-resolution: 1.3dppx) {
+		background-image: url($path_img + $file_name + '@2x' + '.' + $extension);
+		@each $prefix in $prefix_list {
+		  	#{$prefix}background-size: $width $height;
+		}
+	}
+}
+
+
+
+// grid layout
+// ----------------------------------------------
+
+// float
+// floatを使ったグリッドレイアウトを作成
+// 親要素にこれを書くと、その子要素がグリッドレイアウトされる。
+// 現状組めるのは子要素全て同じサイズのもののみ
+// レスポンシブ対応
+// column = カラム数。整数
+// margin = 子要素間のmargin。パーセンテージ
+// float = floatをかける向き
+// class  = 子要素のclass名
+// ex. @include grid-float(3, 5%, left, box);
+
+@mixin grid-float($column:2, $margin: 0%, $float: left, $class: box) {
+	.#{$class} {
+		width: (100% - $margin * ($column - 1)) / $column ;
+		@if $float == left {
+			margin-right: $margin;
+		} @else if $float == right{
+			margin-left: $margin;
+		}
+		float: $float;
+
+		&:nth-child(n) {
+			@if $float == left {
+				margin-left: 0;
+				margin-right: $margin;
+			} @else if $float == right{
+				margin-left: $margin;
+				margin-right: 0;
+			}
+			clear: none;
+		}
+
+		&:nth-child(#{$column + n}) {
+			@if $float == left {
+				margin-right: 0;
+			} @else if $float == right{
+				margin-left: 0;
+			}
+		}
+		&:nth-child(#{$column + n}+1) {
+			clear: $float;
+		}
+
+		&:nth-child(-n+#{$column}){
+			margin-top: 0;
+		}
+	}
+	@include clearfix;
+}
+
+// inline-block
+// inline-blockを使ったグリッドレイアウトを作成
+// 親要素にこれを書くと、その子要素がグリッドレイアウトされる。
+// 現状組めるのは子要素全て同じサイズのもののみ
+// レスポンシブ対応
+// column = カラム数。整数
+// margin = 子要素間のmargin。パーセンテージ
+// class  = 子要素のclass名
+// ex. @include grid-inline-block(3, 5%, item);
+@mixin grid-inline-block($column:2, $margin: 0%, $class: item) {
+	font-size: 0;
+	letter-spacing: 0;
+
+	.#{$class} {
+		width: (100% - $margin * ($column - 1)) / $column ;
+		display: inline-block;
+		margin-right: $margin;
+		font-size: 1rem;
+
+		&:nth-child(n) {
+			margin-right: $margin;
+		}
+
+		&:nth-child(#{$column + n}) {
+			margin-right: 0;
+		}
+
+		&:nth-child(-n+#{$column}){
+			margin-top: 0;
+		}
+	}
+}
+
+
+
+// absolute position
+// ----------------------------------------------
+// 絶対位置指定
+@mixin abs-position ($top: auto, $right: auto, $bottom: auto, $left: auto) {
+	position: absolute;
+	top: $top;
+	right: $right;
+	bottom: $bottom;
+	left: $left;
+}
+
+// pseudo base
+// ----------------------------------------------
+// 擬似要素生成
+@mixin pseudo-element($width: 0, $height: 0, $display: block) {
+	content: '';
+	display: $display;
+	width: $width;
+	height: $height;
+}

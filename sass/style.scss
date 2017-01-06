@@ -1,249 +1,167 @@
-@import "lib/normalize";
-@import "lib/variable";
-@import "lib/button";
-@import "lib/common";
-@import "lib/grid";
-@import "lib/core";
+@charset "utf-8";
+// ------------- prj3.scss ver2.1 --------------
+// =============================================
+//
+// trigger
+//
+// =============================================
 
-/*prefix 
-----------------------------------------------*/
-@mixin css3($property, $value) {
-     @each $prefix in -webkit-, -moz-, -ms-, -o-, '' {
-          #{$prefix}#{$property}: $value;
-     }
-}
+//----------------------------------------------
+// サポートブラウザ （サポートするブラウザをtrue、しないコンポーネントにfalseを指定
+//----------------------------------------------
+$support_ie      :  true;
+$support_ie6     : false;
+$support_ie7     : false;
+$support_ie8     : false;
+$support_ie9     : false;
+$support_ie10    : false;
+$support_ie11    :  true;
+$support_webkit  :  true;
+$support_mo      :  true;
+$support_o       :  true;
 
-/*common window-size set
-----------------------------------------------*/ 
-$mq-lg: 1440px; //pc
-$mq-md: 1024px; //tab横
-$mq-sm: 768px; //tab縦
-$mq-xs: 568px; //sp
+//----------------------------------------------
+// モリサワ書体を使う場合はtrue
+//----------------------------------------------
+$morisawa         : false;
 
-@mixin pc { //ラップトップ向けブレークポイント 1024〜1440
-  @media (min-width: $mq-md) {
-    @content;
-  }
-}
-@mixin m-pc { //ラップトップ向けブレークポイント 1024〜1440
-  @media (min-width: $mq-md) and (max-width: ($mq-lg)) {
-    @content;
-  }
-}
-@mixin s-pc { //タブレット横向けブレークポイント 768〜1024
-  @media (min-width: $mq-sm) and (max-width: ($mq-md)) {
-    @content;
-  }
-}
-@mixin tab { // 568〜768
-  @media (min-width: $mq-xs) and (max-width: ($mq-sm)) {
-    @content;
-  }
-}
-@mixin tab-p { //タブレット縦向けブレークポイント 568〜768
-  @media (min-width: $mq-xs) and (max-width: ($mq-sm)) and (orientation:portrait) {
-    @content;
-  }
-}
-@mixin sp { //スマートフォン向けブレークポイント 〜568
-  @media (max-width: ($mq-xs)) {
-    @content;
-  }
-}
-@mixin retina {
-	@media (-webkit-min-device-pixel-ratio: 2){
-	    @content;
-	}
-}
+//----------------------------------------------
+// 欧文書体のimportと変数指定
+//----------------------------------------------
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700')        ; //Open Sans
+// @import url('https://fonts.googleapis.com/css?family=Roboto:400,700')           ; //Roboto
+// @import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700') ; //Roboto Condensed
+// @import url('https://fonts.googleapis.com/css?family=Oswald:400,700')           ; //Oswald
+// @import url('https://fonts.googleapis.com/css?family=Lato:400,700')             ; //Lato
+// @import url('https://fonts.googleapis.com/css?family=Fjalla+One')               ; //Fjalla One
 
-/* font-style
+$euro_font: 'Open Sans', sans-serif        ; //Open Sans
+// $euro_font: 'Roboto', sans-serif           ; //Roboto
+// $euro_font: 'Roboto Condensed', sans-serif ; //Roboto Condensed
+// $euro_font: 'Oswald', sans-serif           ; //Oswald
+// $euro_font: 'Lato', sans-serif             ; //Lato
+// $euro_font: 'Fjalla One', sans-serif       ; //Fjalla One
+
+// =============================================
+//
+// import lib scss
+//
+// =============================================
+@import "_lib/_variable.scss";
+@import "_lib/_fontface.scss";
+@import "_lib/_mixin.scss";
+// @import "_custom_mixin.scss";
+
+// =============================================
+//
+// style
+//
+// =============================================
+//
+// cssプロパティの記述順序
+// --------------------
+//
+// 1,これは何
+// ---------
+// content
+// display
+// visibility
+// list-style
+// position
+//
+// 2,これはどこにある
+// ---------
+// top
+// right
+// bottom
+// left
+// z-index
+// transform
+// float
+// clear
+//
+// 3,これの大きさ、薄さ
+// ---------
+// width
+// height
+// opacity
+// margin
+// padding
+// overflow
+//
+// 4,これの見た目
+// ---------
+// border
+// box-sizing
+// box-shadow
+// background
+//
+// 5,これの中の文字
+// ---------
+// color
+// font
+// letter-spacing
+// line-height
+// text-decoration
+// text-aline
+// vertical-aline
+// white-space
+//
+// 6,これの動作
+// ---------
+// transition
+// cursor
+//
+//
+// SASS 標準関数
+// -------------------------------------
+// 参考：http://book.scss.jp/code/c8/07.html
+// rgba(hex,X%)          16進数のRGB値に透明度を指定して、RGBA形式に変換する
+// lighten(color,X%)     X%明るいカラーコードを出力する
+// darken(color,X%)      X%暗いカラーコードを出力する
+// mix(color1,color2,X%) 2つのカラーコードの中間色を出力する
+// random(maxValue)      コンパイルするごとにmaxValueまでの乱数を出力する
+// abs()                 数値の絶対値を取得する
+// round()               数値の小数点以下を四捨五入する
+// ceil()                数値の小数点以下を切り上げる
+// floor()               数値の小数点以下を切り捨てる
+// type-of()             データタイプを判別する
+// quote()               ダブルクォートで括る
+// unquote()             ダブルクォートを外す
+//
+// ||||||||||||||||↓ your code ↓||||||||||||||||
+
+// custom value
+// $morisawa_gothic_normal: "游ゴシック", "Yu Gothic", YuGothic ;
+// $morisawa_gothic_bold  : "游ゴシック", "Yu Gothic", YuGothic ;
+
+/* --------------------------------------------------
+
+	original_style
+
 -------------------------------------------------- */
-@font-face {
-  font-family: "Yu Gothic";
-  src: local("Yu Gothic Medium");
-  font-weight: 100;
-}
-@font-face {
-  font-family: "Yu Gothic";
-  src: local("Yu Gothic Medium");
-  font-weight: 200;
-}
-@font-face {
-  font-family: "Yu Gothic";
-  src: local("Yu Gothic Medium");
-  font-weight: 300;
-}
-@font-face {
-  font-family: "Yu Gothic";
-  src: local("Yu Gothic Medium");
-  font-weight: 400;
-}
-@font-face {
-  font-family: "Yu Gothic";
-  src: local("Yu Gothic Bold");
-  font-weight: bold;
-}
-@font-face {
-  font-family: "Helvetica Neue";
-  src: local("Helvetica Neue Regular");
-  font-weight: 100;
-}
-@font-face {
-  font-family: "Helvetica Neue";
-  src: local("Helvetica Neue Regular");
-  font-weight: 200;
-}
+@charset "utf-8";
 
-$font-n: font-family: "Roboto", "-apple-system", "Helvetica Neue", "Yu Gothic", YuGothic, Verdana, Meiryo, "M+ 1p", sans-serif !default;
-
-/*common color set
-----------------------------------------------*/ 
-$text: #363b3b !default; //本文or黒
-$gray: #e7efef !default; //bg or グレー
-$man: #0097ae !default; //男子データカラー
-$woman: #e42e88 !default; //女子データカラー
-$main: #00478b !default; //基本メインカラー
-
-//medal
-$gold: #e0c12f !default;
-$silver: #97a8aa !default;
-$bronze: #796551 !default;
-
-$japan: #f64d55 !default;
-
-/*common mixin
-----------------------------------------------*/
-
-// clear-fix
-@mixin clearfix() {
-    *zoom: 1;
-    &:before,
-    &:after {
-        display: table;
-        content: " ";
-    }
-    &:after {
-        clear: both;
-    }
-}
-
-//absolute position
-@mixin absPoz ($top: auto, $right: auto, $bottom: auto, $left: auto) {
-     position: absolute;
-     top: $top;
-     right: $right;
-     bottom: $bottom;
-     left: $left;
-}
-
-//absolute position center
-@mixin absCnt() {
-	@include absPoz(0, 0, 0, 0);
-	margin: auto;
-}
-
-//arrow 
-@mixin arrow-right($width: 10px, $height: 10px) {
-	content: '';
-	display: block;
-	width: $width;
-	height: $height;
-	border-top: 1px solid $text;
-	border-right: 1px solid $text;
-	-webkit-transform: rotate(45deg);
-	   -moz-transform: rotate(45deg);
-	    -ms-transform: rotate(45deg);
-	     -o-transform: rotate(45deg);
-	        transform: rotate(45deg);
-}
-@mixin arrow-left($width: 10px, $height: 10px) {
-	content: '';
-	display: block;
-	width: $width;
-	height: $height;
-	border-top: 1px solid $text;
-	border-left: 1px solid $text;
-	-webkit-transform: rotate(-45deg);
-	   -moz-transform: rotate(-45deg);
-	    -ms-transform: rotate(-45deg);
-	     -o-transform: rotate(-45deg);
-	        transform: rotate(-45deg);
-}
-
-
-//pseudo bace
-@mixin pseudo($width: 0, $height: 0) {
-	content: '';
-	display: block;
-	width: $width;
-	height: $height;
-}
-
-
-/* common-style
--------------------------------------------------- */
-@-ms-viewport {
+@if $support_ie10 or $support_ie11 { //スクロールバー重なり対策ie10,ie11
+  @-ms-viewport {
     width: auto;
     initial-scale: 1;
+  }
 }
-
-body {
-	font-family: $font-n ;
+//-----------------------------------------------------------------------------------
+//************************************** style **************************************
+//-----------------------------------------------------------------------------------
+//svgの高さ調整 ie9,ie10,ie11
+@if $support_ie9 or $support_ie10 or $support_ie11 {
+  img[src$=".svg"] {
+    height: 100%;
+  }
 }
-a {
-	color: #333333;
-	text-decoration:none;
+@if $original_style == false {
+    p {
+        margin: 0;
+    }
 }
-a,
-button {
-	-webkit-tap-highlight-color: rgba(204,204,204,.5);
-}
-
-svg:not(:root) {
-	overflow: visible;
-}
-
-/* default-setting
--------------------------------------------------- */
-
 .wrapper {
-	width: 100%;
+    @include font-family-japan(gothic, normal, false);
 }
-.content {
-  display: inline-block;
-  width: 100%;
-}
-
-/* text
--------------------------------------------------- */
-h1,
-h2,
-h3,
-h4,
-h5{
-	color: #333;
-	font-family: 'Roboto', sans-serif;
-	font-weight: 700;
-	margin: 0;
-}
-h1{
-	font-size: 32px;
-}
-h2{
-	font-size: 25px;
-}
-h3{
-	font-size: 18px;
-}
-h4{
-	font-size: 14px;
-}
-h5{
-	font-size: 13px
-}
-
-p{
-	font-size: 14px;
-	color: #333;
-}
-
