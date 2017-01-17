@@ -157,11 +157,6 @@ $euro_font: 'Open Sans', sans-serif        ; //Open Sans
     height: 100%;
   }
 }
-@if $original_style == false {
-    p {
-        margin: 0;
-    }
-}
 .wrapper {
     @include font-family-japan(gothic, normal, false);
 }
