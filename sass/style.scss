@@ -160,3 +160,13 @@ $euro_font: 'Open Sans', sans-serif        ; //Open Sans
 .wrapper {
     @include font-family-japan(gothic, normal, false);
 }
+
+// common
+// ----------------------------------------
+ul {
+    list-style: none;
+    padding: 0;
+    li {
+        padding: 0;
+    }
+}
